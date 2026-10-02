@@ -31,7 +31,7 @@ body{background:#03060c;color:var(--text);font-family:system-ui,-apple-system,"S
 .candles i:nth-child(even){background:#ff5d5d}
 @keyframes bob{from{transform:scaleY(.55);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
 header{position:relative;text-align:center;padding-top:26px}
-.logo{width:96px;height:96px;border-radius:50%;margin:0 auto 10px;background:#111 center/cover no-repeat;border:3px solid #f59a1b;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:800;color:#f59a1b;font-size:30px}
+.logo{width:96px;height:96px;border-radius:50%;margin:0 auto 10px;background:#111 center/cover no-repeat;border:3px solid #f59a1b;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:800;color:#f59a1b;font-size:30px;box-shadow:0 0 15px rgba(245,154,27,0.3)}
 .brand{font-size:15px;color:var(--mute);letter-spacing:.3px}
 h1{font-size:25px;line-height:1.35;margin:14px 0 4px;font-weight:800}
 h1 em{font-style:normal;color:var(--y);display:block}
@@ -44,15 +44,16 @@ h2{font-size:17px;margin:22px 0 4px;text-align:center}
 .svc:active{transform:scale(.97)}
 .svc .ic{flex:none;width:38px;height:38px;border-radius:50%;background:#12356b;display:flex;align-items:center;justify-content:center;font-size:19px}
 .svc[aria-pressed="true"]{background:var(--sel);border-color:var(--y)}
-.svc[aria-pressed="true"]::after{content:"\2713";position:absolute;top:6px;right:9px;color:var(--y);font-size:13px}
+.svc[aria-pressed="true"]::after{content:"\2713";position:absolute;top:6px;right:9px;color:var(--y);font-size:13px;font-weight:bold}
 .detail{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px;line-height:1.55;color:#d6e0f5;min-height:70px}
 .detail b{color:var(--y)}
 .trust{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
-.trust div{background:var(--card);border-radius:12px;padding:12px 8px;font-size:13px;font-weight:700;text-align:center}
+.trust div{background:var(--card);border-radius:12px;padding:12px 8px;font-size:13px;font-weight:700;text-align:center;border:1px solid rgba(255,255,255,0.05)}
 .trust span{display:block;font-size:20px;margin-bottom:4px}
 .note{text-align:center;color:var(--mute);font-size:12px;margin-top:22px;line-height:1.6}
-.bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#0b1527;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.cta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:10px 4px;border-radius:12px;text-decoration:none;color:#fff;font-weight:700;font-size:12.5px;text-align:center}
+.bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#0b1527;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;z-index:100}
+.cta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:10px 4px;border-radius:12px;text-decoration:none;color:#fff;font-weight:700;font-size:12.5px;text-align:center;transition:transform .1s}
+.cta:active{transform:scale(.95)}
 .cta b{font-size:18px}
 .wa{background:var(--g);color:#052b14}.tg{background:#229ED9}.call{background:#1d2c4a;border:1px solid var(--line)}
 .cta:focus-visible,.svc:focus-visible,.logo:focus-visible{outline:3px solid #fff;outline-offset:2px}
@@ -91,14 +92,12 @@ h2{font-size:17px;margin:22px 0 4px;text-align:center}
 </nav>
 
 <script>
-/* ====== YAHAN APNI DETAILS BADLO ====== */
+/* ====== CONFIGURATION ====== */
 const CONFIG = {
   brand: "Praveen Ads Agency · Grow your business online",
-  logo: "parveen.jpeg",                 // logo ka link, khali ho to upload preview
-  phone: "9256777139",                  // bina +91, bina space
-  telegramUser: "praveenadsagency",     // bina @
-  // Telegram button yahan khulega. Apna channel invite chahiye to ye line badlo:
-  // telegramLink: "https://t.me/+2v7UpmUDSfo3Nzll",
+  logo: "parveen.jpeg",
+  phone: "9256777139",
+  telegramUser: "praveenadsagency",
   telegramLink: "https://t.me/+2v7UpmUDSfo3Nzll",
   services: [
     ["✍️", "Hand Writing Ads", "Haath se likhe hue style ke creatives jo Telegram par alag dikhte hain."],
@@ -110,27 +109,28 @@ const CONFIG = {
   ],
   trust: [["🎯", "Fast Response"], ["🛡️", "Safe & Secure"], ["⚡", "100% Result"], ["📊", "Your Success, Our Priority"]]
 };
-/* ======================================= */
 
 const $ = id => document.getElementById(id);
 const sel = new Set();
+
+/* Init Details */
 $("brand").textContent = CONFIG.brand;
-$("tg").href = CONFIG.telegramLink;                 // FIXED
+$("tg").href = CONFIG.telegramLink;
 $("tgSub").textContent = "@" + CONFIG.telegramUser;
 $("call").href = "tel:+91" + CONFIG.phone;
 $("callSub").textContent = CONFIG.phone;
 $("trust").innerHTML = CONFIG.trust.map(t => `<div><span>${t[0]}</span>${t[1]}</div>`).join("");
 
-/* Logo */
+/* Logo Handler */
 function setLogo(src){ const l=$("logo"); l.style.backgroundImage=`url("${src}")`; l.textContent=""; }
 if (CONFIG.logo) setLogo(CONFIG.logo);
 $("logo").onclick = () => $("file").click();
-$("logo").onkeydown = e => { if (e.key==="Enter"||e.key===" ") $("file").click(); };
+$("logo").onkeydown = e => { if (e.key==="Enter"\vert{}\vert{}e.key===" ") $("file").click(); };
 $("file").onchange = e => { const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>setLogo(r.result); r.readAsDataURL(f); };
 
-/* Services */
+/* Render Services */
 $("grid").innerHTML = CONFIG.services.map((s,i) =>
-  `<button class="svc" data-i="${i}" aria-pressed="false"><span class="ic">${s[0]}</span>${i+1}. ${s[1]}</button>`).join("");
+  `<button type="button" class="svc" data-i="${i}" aria-pressed="false"><span class="ic">${s[0]}</span>${i+1}. ${s[1]}</button>`).join("");
 
 function update(last){
   const names = [...sel].sort((a,b)=>a-b).map(i => CONFIG.services[i][1]);
@@ -145,17 +145,47 @@ function update(last){
   $("waSub").textContent = names.length ? names.length + " service chuni" : "Message bhejo";
   $("hint").textContent = names.length ? names.length + " selected: " + names.join(", ") : "Tap karke ek ya zyada services chuno";
 }
+
+/* Service Selection & Meta Event */
 $("grid").onclick = e => {
   const b = e.target.closest(".svc"); if (!b) return;
   const i = +b.dataset.i;
   if (sel.has(i)) { sel.delete(i); b.setAttribute("aria-pressed","false"); }
   else { sel.add(i); b.setAttribute("aria-pressed","true"); }
   update(i);
+
+  // Pixel Custom Event
+  if (typeof fbq !== 'undefined') {
+    fbq('trackCustom', 'SelectService', {
+      service_name: CONFIG.services[i][1]
+    });
+  }
 };
 update();
 
-/* Background candles */
+/* Dynamic Candles */
 $("candles").innerHTML = Array.from({length:18},(_,i)=>`<i style="height:${40+Math.random()*180}px;animation-delay:${(i*.23).toFixed(2)}s"></i>`).join("");
+
+/* ====== AUTOMATIC META PIXEL TRACKING ====== */
+$("wa").addEventListener("click", function() {
+  if (typeof fbq !== 'undefined') {
+    const selectedServices = [...sel].map(i => CONFIG.services[i][1]).join(', ');
+    fbq('track', 'Contact', { channel: 'WhatsApp', services: selectedServices || 'General' });
+    fbq('track', 'Lead', { content_name: 'WhatsApp Lead Click' });
+  }
+});
+
+$("tg").addEventListener("click", function() {
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Contact', { channel: 'Telegram' });
+  }
+});
+
+$("call").addEventListener("click", function() {
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Contact', { channel: 'Phone Call' });
+  }
+});
 </script>
 </body>
 </html>
