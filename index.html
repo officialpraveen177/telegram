@@ -3,106 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TradeWithMunaaf</title>
+<title>Praveen Ads Agency - Telegram Meta Ads</title>
 <style>
-:root{--bg:#0f1826;--card:#172236;--line:#26364f;--text:#f2f6fb;--mute:#8fa0b8;--a:#7df3e1;--b:#3fd6a6;--up:#3fd68a;--down:#ff6b6b}
+:root{--bg:#070d1a;--card:#101b31;--line:#22345a;--text:#f3f7ff;--mute:#93a4c2;--y:#ffe14a;--blue:#2aa3ff;--g:#25d366;--sel:#163a6b}
 *{box-sizing:border-box;margin:0}
-body{background:#080d15;color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;display:flex;justify-content:center}
-.page{width:100%;max-width:420px;min-height:100vh;background:var(--bg);padding:28px 20px 32px;text-align:center}
-.avatar{width:128px;height:128px;border-radius:50%;margin:0 auto 16px;background:#fff center/cover no-repeat;border:3px solid var(--b);cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center;color:#456;font-size:12px}
-.avatar:focus-visible,.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
-h1{font-size:26px;letter-spacing:.2px}
-.tag{color:var(--mute);font-size:14px;margin-top:6px}
-.ticker{display:grid;gap:8px;margin:22px 0}
-.row{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.row b{font-size:15px}
-.px{text-align:right;font-variant-numeric:tabular-nums}
-.px span{display:block;font-size:12px;margin-top:2px}
-.up{color:var(--up)}.down{color:var(--down)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px}
-.stat{background:var(--card);border-radius:12px;padding:14px 8px}
-.stat strong{display:block;font-size:22px;color:var(--a)}
-.stat small{color:var(--mute);font-size:12px}
-.list{list-style:none;padding:0;text-align:left;margin-bottom:24px}
-.list li{padding:10px 4px;border-bottom:1px solid var(--line);font-size:15px}
-.list li::before{content:"\2713\00a0\00a0";color:var(--b);font-weight:700}
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:999px;background:linear-gradient(90deg,var(--a),var(--b));color:#06231c;font-weight:700;font-size:18px;text-decoration:none;transition:transform .15s}
-.btn:active{transform:scale(.97)}
-.btn svg{width:30px;height:30px}
-.foot{color:var(--mute);font-size:12px;margin-top:22px;line-height:1.6}
-.foot a{color:var(--b);text-decoration:none}
-.risk{font-size:11px;color:#6d7f98;margin-top:14px}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+body{background:#03060c;color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif;display:flex;justify-content:center}
+.page{width:100%;max-width:430px;min-height:100vh;background:var(--bg);padding:0 16px 120px;position:relative;overflow:hidden}
+.candles{position:absolute;top:0;left:0;right:0;height:300px;display:flex;justify-content:space-around;align-items:flex-end;opacity:.28;pointer-events:none}
+.candles i{width:10px;border-radius:2px;background:#27d17f;animation:bob 3.2s ease-in-out infinite alternate}
+.candles i:nth-child(even){background:#ff5d5d}
+@keyframes bob{from{transform:scaleY(.55);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
+header{position:relative;text-align:center;padding-top:26px}
+.logo{width:96px;height:96px;border-radius:50%;margin:0 auto 10px;background:#111 center/cover no-repeat;border:3px solid #f59a1b;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:800;color:#f59a1b;font-size:30px}
+.brand{font-size:15px;color:var(--mute);letter-spacing:.3px}
+h1{font-size:25px;line-height:1.35;margin:14px 0 4px;font-weight:800}
+h1 em{font-style:normal;color:var(--y);display:block}
+.pill{display:inline-flex;align-items:center;gap:8px;margin:14px 0 6px;padding:8px 18px;border:1.5px solid var(--blue);border-radius:999px;font-weight:800;background:#0a1730}
+.pill svg{width:26px;height:26px}
+h2{font-size:17px;margin:22px 0 4px;text-align:center}
+.hint{text-align:center;color:var(--mute);font-size:13px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.svc{display:flex;align-items:center;gap:10px;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--text);border-radius:14px;padding:12px 10px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:background .15s,border-color .15s,transform .1s;position:relative}
+.svc:active{transform:scale(.97)}
+.svc .ic{flex:none;width:38px;height:38px;border-radius:50%;background:#12356b;display:flex;align-items:center;justify-content:center;font-size:19px}
+.svc[aria-pressed="true"]{background:var(--sel);border-color:var(--y)}
+.svc[aria-pressed="true"]::after{content:"\2713";position:absolute;top:6px;right:9px;color:var(--y);font-size:13px}
+.detail{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px;line-height:1.55;color:#d6e0f5;min-height:70px}
+.detail b{color:var(--y)}
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
+.trust div{background:var(--card);border-radius:12px;padding:12px 8px;font-size:13px;font-weight:700;text-align:center}
+.trust span{display:block;font-size:20px;margin-bottom:4px}
+.note{text-align:center;color:var(--mute);font-size:12px;margin-top:22px;line-height:1.6}
+.bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#0b1527;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.cta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:10px 4px;border-radius:12px;text-decoration:none;color:#fff;font-weight:700;font-size:12.5px;text-align:center}
+.cta b{font-size:18px}
+.wa{background:var(--g);color:#052b14}.tg{background:#229ED9}.call{background:#1d2c4a;border:1px solid var(--line)}
+.cta:focus-visible,.svc:focus-visible,.logo:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <main class="page">
+  <div class="candles" aria-hidden="true" id="candles"></div>
 
-  <!-- Profile photo: tap karke gallery se image chuno (preview). Permanent ke liye CONFIG me image link do -->
-  <div class="avatar" id="avatar" role="button" tabindex="0" aria-label="Photo badlo">Photo</div>
-  <input type="file" id="file" accept="image/*" hidden>
+  <header>
+    <!-- Logo: tap karke upload (preview) ya CONFIG me logo link do -->
+    <div class="logo" id="logo" role="button" tabindex="0" aria-label="Logo badlo">P</div>
+    <input type="file" id="file" accept="image/*" hidden>
+    <p class="brand" id="brand"></p>
+    <h1>सभी तरह के टेलीग्राम चैनल के लिए<em>ज्वाइनिंग वाला एड्स लगाते हैं हम</em></h1>
+    <div class="pill">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#229ED9"/><path fill="#fff" d="M10.5 23.600 35 14c1.100-.4 2.100.3 1.700 1.900l-4.200 19.600c-.3 1.400-1.100 1.700-2.300 1.100l-6.300-4.700-3 2.900c-.3.300-.6.600-1.200.6l.4-6.400 11.700-10.600c.5-.4-.1-.7-.8-.3L14.300 27.800l-6.200-1.900c-1.300-.4-1.400-1.300.4-2z"/></svg>
+      TELEGRAM META ADS
+    </div>
+  </header>
 
-  <h1 id="name"></h1>
-  <p class="tag" id="tagline"></p>
+  <h2>अपना एड टाइप चुनें</h2>
+  <p class="hint" id="hint">Tap karke ek ya zyada services chuno</p>
+  <section class="grid" id="grid"></section>
+  <section class="detail" id="detail">Kisi service par tap karo, yahan uski jaankari dikhegi.</section>
 
-  <section class="ticker" id="ticker" aria-label="Market demo"></section>
+  <section class="trust" id="trust"></section>
 
-  <section class="stats" id="stats"></section>
-
-  <ul class="list" id="points"></ul>
-
-  <a class="btn" id="join" href="#" target="_blank" rel="noopener">
-    <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#229ED9"/><path fill="#fff" d="M10.5 23.6 35 14c1.1-.4 2.1.3 1.7 1.9l-4.2 19.6c-.3 1.4-1.1 1.7-2.300 1.1l-6.300-4.700-3 2.900c-.3.300-.6.600-1.200.600l.4-6.400 11.700-10.600c.5-.4-.1-.7-.8-.3L14.300 27.800l-6.200-1.900c-1.300-.4-1.400-1.300.4-2z"/></svg>
-    <span>Join Telegram</span>
-  </a>
-
-  <p class="foot" id="foot"></p>
-  <p class="risk">Market risk ke adheen hai. Yeh sirf jaankari hai, investment salah nahi. Apne risk par trade karein.</p>
+  <p class="note">यहाँ Telegram पर सभी प्रकार के विज्ञापन लगाए जाते हैं।<br>Apni requirement WhatsApp par bhejo, hum jaldi reply karenge.</p>
 </main>
+
+<nav class="bar" aria-label="Contact">
+  <a class="cta wa" id="wa" href="#" target="_blank" rel="noopener"><b>WhatsApp</b><span id="waSub">Message bhejo</span></a>
+  <a class="cta tg" id="tg" href="#" target="_blank" rel="noopener"><b>Telegram</b><span id="tgSub"></span></a>
+  <a class="cta call" id="call" href="#"><b>Call</b><span id="callSub"></span></a>
+</nav>
 
 <script>
 /* ====== YAHAN APNI DETAILS BADLO ====== */
 const CONFIG = {
-  name: "TradeWithMunaaf₹",
-  tagline: "NIFTY · BANKNIFTY · SENSEX",
-  telegram: "https://t.me/+2v7UpmUDSfo3Nzll",      // <- apna Telegram channel link
-  image: "parveen.jpeg",                                   // <- photo ka link (jaise https://.../photo.jpg), khali chhodo to upload preview
-  stats: [["95%", "Accuracy"], ["6+", "Years Experience"]],
-  points: ["Daily calls available", "NIFTY, BANKNIFTY & SENSEX focus", "Live updates Telegram par"],
-  footer: 'Contact only for ads setup<br>Ads managed by <a href="#">Kunal</a>',
-  // Demo prices (live nahi hain). Real data ke liye API jodo.
-  market: [["NIFTY", 24500], ["BANKNIFTY", 52000], ["SENSEX", 80500]]
+  brand: "Praveen Ads Agency · Grow your business online",
+  logo: "parveen.jpeg",                       // <- logo ka link, khali ho to upload preview
+  phone: "9256777139",
+  telegramUser: "praveenadsagency",
+  services: [
+    ["✍️", "Hand Writing Ads", "Haath se likhe hue style ke creatives jo Telegram par alag dikhte hain."],
+    ["📚", "Book Writing Ads", "Book-style creatives, jo channel ki value samjhane mein madad karte hain."],
+    ["🎭", "Playboy Ads", "Is category ke liye alag creative aur targeting. Details WhatsApp par poochho."],
+    ["🎬", "Demo Ads", "Demo video / screenshot wale ads jo channel ka kaam dikhate hain."],
+    ["📈", "Stock Market Ads", "NIFTY, BANKNIFTY aur trading channels ke liye joining wale ads."],
+    ["🏏", "Cricket Ads", "Cricket channels ke liye joining ads, match season ke hisaab se."]
+  ],
+  trust: [["🎯", "Fast Response"], ["🛡️", "Safe & Secure"], ["⚡", "100% Result"], ["📊", "Your Success, Our Priority"]]
 };
 /* ======================================= */
 
 const $ = id => document.getElementById(id);
-$("name").textContent = CONFIG.name;
-$("tagline").textContent = CONFIG.tagline;
-$("join").href = CONFIG.telegram;
-$("foot").innerHTML = CONFIG.footer;
-$("stats").innerHTML = CONFIG.stats.map(s => `<div class="stat"><strong>${s[0]}</strong><small>${s[1]}</small></div>`).join("");
-$("points").innerHTML = CONFIG.points.map(p => `<li>${p}</li>`).join("");
+const sel = new Set();
+$("brand").textContent = CONFIG.brand;
+$("tg").href = "https://t.me/+2v7UpmUDSfo3Nzll" + CONFIG.telegramUser;
+$("tgSub").textContent = "@" + CONFIG.telegramUser;
+$("call").href = "tel:+91" + CONFIG.phone;
+$("callSub").textContent = CONFIG.phone;
+$("trust").innerHTML = CONFIG.trust.map(t => `<div><span>${t[0]}</span>${t[1]}</div>`).join("");
 
-function setImg(src){ const a=$("avatar"); a.style.backgroundImage=`url("${src}")`; a.textContent=""; }
-if (CONFIG.image) setImg(CONFIG.image);
-$("avatar").onclick = () => $("file").click();
-$("avatar").onkeydown = e => { if (e.key==="Enter"||e.key===" ") $("file").click(); };
-$("file").onchange = e => {
-  const f = e.target.files[0]; if (!f) return;
-  const r = new FileReader(); r.onload = () => setImg(r.result); r.readAsDataURL(f);
-};
+/* Logo */
+function setLogo(src){ const l=$("logo"); l.style.backgroundImage=`url("${src}")`; l.textContent=""; }
+if (CONFIG.logo) setLogo(CONFIG.logo);
+$("logo").onclick = () => $("file").click();
+$("logo").onkeydown = e => { if (e.key==="Enter"||e.key===" ") $("file").click(); };
+$("file").onchange = e => { const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>setLogo(r.result); r.readAsDataURL(f); };
 
-/* Demo ticker: har 2 sec me thoda upar-neeche */
-const state = CONFIG.market.map(([n,p]) => ({n, base:p, p}));
-$("ticker").innerHTML = state.map((s,i) => `<div class="row"><b>${s.n}</b><div class="px" id="px${i}"></div></div>`).join("");
-function tick(){
-  state.forEach((s,i) => {
-    s.p = Math.max(s.base*0.97, Math.min(s.base*1.03, s.p + (Math.random()-0.5)*s.base*0.0015));
-    const ch = s.p - s.base, pc = ch / s.base * 100, up = ch >= 0;
-    $("px"+i).innerHTML = `${s.p.toLocaleString("en-IN",{maximumFractionDigits:2})}<span class="${up?"up":"down"}">${up?"▲":"▼"} ${Math.abs(ch).toFixed(2)} (${Math.abs(pc).toFixed(2)}%)</span>`;
-  });
+/* Services */
+$("grid").innerHTML = CONFIG.services.map((s,i) =>
+  `<button class="svc" data-i="${i}" aria-pressed="false"><span class="ic">${s[0]}</span>${i+1}. ${s[1]}</button>`).join("");
+
+function update(last){
+  const names = [...sel].sort().map(i => CONFIG.services[i][1]);
+  if (last !== undefined) {
+    const s = CONFIG.services[last];
+    $("detail").innerHTML = `<b>${s[1]}</b><br>${s[2]}`;
+  }
+  const msg = names.length
+    ? `Namaste, mujhe Telegram ads chahiye: ${names.join(", ")}. Please details bhejiye.`
+    : "Namaste, mujhe Telegram ads ki jaankari chahiye.";
+  $("wa").href = "https://wa.me/91" + CONFIG.phone + "?text=" + encodeURIComponent(msg);
+  $("waSub").textContent = names.length ? names.length + " service chuni" : "Message bhejo";
+  $("hint").textContent = names.length ? names.length + " selected: " + names.join(", ") : "Tap karke ek ya zyada services chuno";
 }
-tick(); setInterval(tick, 2000);
+$("grid").onclick = e => {
+  const b = e.target.closest(".svc"); if (!b) return;
+  const i = +b.dataset.i;
+  if (sel.has(i)) { sel.delete(i); b.setAttribute("aria-pressed","false"); }
+  else { sel.add(i); b.setAttribute("aria-pressed","true"); }
+  update(i);
+};
+update();
+
+/* Background candles */
+$("candles").innerHTML = Array.from({length:18},(_,i)=>`<i style="height:${40+Math.random()*180}px;animation-delay:${(i*.23).toFixed(2)}s"></i>`).join("");
 </script>
 </body>
 </html>
