@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TradeWithMunaaf</title>
+<style>
+:root{--bg:#0f1826;--card:#172236;--line:#26364f;--text:#f2f6fb;--mute:#8fa0b8;--a:#7df3e1;--b:#3fd6a6;--up:#3fd68a;--down:#ff6b6b}
+*{box-sizing:border-box;margin:0}
+body{background:#080d15;color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;display:flex;justify-content:center}
+.page{width:100%;max-width:420px;min-height:100vh;background:var(--bg);padding:28px 20px 32px;text-align:center}
+.avatar{width:128px;height:128px;border-radius:50%;margin:0 auto 16px;background:#fff center/cover no-repeat;border:3px solid var(--b);cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center;color:#456;font-size:12px}
+.avatar:focus-visible,.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+h1{font-size:26px;letter-spacing:.2px}
+.tag{color:var(--mute);font-size:14px;margin-top:6px}
+.ticker{display:grid;gap:8px;margin:22px 0}
+.row{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.row b{font-size:15px}
+.px{text-align:right;font-variant-numeric:tabular-nums}
+.px span{display:block;font-size:12px;margin-top:2px}
+.up{color:var(--up)}.down{color:var(--down)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px}
+.stat{background:var(--card);border-radius:12px;padding:14px 8px}
+.stat strong{display:block;font-size:22px;color:var(--a)}
+.stat small{color:var(--mute);font-size:12px}
+.list{list-style:none;padding:0;text-align:left;margin-bottom:24px}
+.list li{padding:10px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.list li::before{content:"\2713\00a0\00a0";color:var(--b);font-weight:700}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:999px;background:linear-gradient(90deg,var(--a),var(--b));color:#06231c;font-weight:700;font-size:18px;text-decoration:none;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn svg{width:30px;height:30px}
+.foot{color:var(--mute);font-size:12px;margin-top:22px;line-height:1.6}
+.foot a{color:var(--b);text-decoration:none}
+.risk{font-size:11px;color:#6d7f98;margin-top:14px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- Profile photo: tap karke gallery se image chuno (preview). Permanent ke liye CONFIG me image link do -->
+  <div class="avatar" id="avatar" role="button" tabindex="0" aria-label="Photo badlo">Photo</div>
+  <input type="file" id="file" accept="image/*" hidden>
+
+  <h1 id="name"></h1>
+  <p class="tag" id="tagline"></p>
+
+  <section class="ticker" id="ticker" aria-label="Market demo"></section>
+
+  <section class="stats" id="stats"></section>
+
+  <ul class="list" id="points"></ul>
+
+  <a class="btn" id="join" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#229ED9"/><path fill="#fff" d="M10.5 23.6 35 14c1.1-.4 2.1.3 1.7 1.9l-4.2 19.6c-.3 1.4-1.1 1.7-2.300 1.1l-6.300-4.700-3 2.900c-.3.300-.6.600-1.200.600l.4-6.400 11.700-10.600c.5-.4-.1-.7-.8-.3L14.300 27.800l-6.200-1.900c-1.300-.4-1.400-1.300.4-2z"/></svg>
+    <span>Join Telegram</span>
+  </a>
+
+  <p class="foot" id="foot"></p>
+  <p class="risk">Market risk ke adheen hai. Yeh sirf jaankari hai, investment salah nahi. Apne risk par trade karein.</p>
+</main>
+
+<script>
+/* ====== YAHAN APNI DETAILS BADLO ====== */
+const CONFIG = {
+  name: "TradeWithMunaaf₹",
+  tagline: "NIFTY · BANKNIFTY · SENSEX",
+  telegram: "https://t.me/YOUR_CHANNEL",      // <- apna Telegram channel link
+  image: "",                                   // <- photo ka link (jaise https://.../photo.jpg), khali chhodo to upload preview
+  stats: [["95%", "Accuracy"], ["6+", "Years Experience"]],
+  points: ["Daily calls available", "NIFTY, BANKNIFTY & SENSEX focus", "Live updates Telegram par"],
+  footer: 'Contact only for ads setup<br>Ads managed by <a href="#">Kunal</a>',
+  // Demo prices (live nahi hain). Real data ke liye API jodo.
+  market: [["NIFTY", 24500], ["BANKNIFTY", 52000], ["SENSEX", 80500]]
+};
+/* ======================================= */
+
+const $ = id => document.getElementById(id);
+$("name").textContent = CONFIG.name;
+$("tagline").textContent = CONFIG.tagline;
+$("join").href = CONFIG.telegram;
+$("foot").innerHTML = CONFIG.footer;
+$("stats").innerHTML = CONFIG.stats.map(s => `<div class="stat"><strong>${s[0]}</strong><small>${s[1]}</small></div>`).join("");
+$("points").innerHTML = CONFIG.points.map(p => `<li>${p}</li>`).join("");
+
+function setImg(src){ const a=$("avatar"); a.style.backgroundImage=`url("${src}")`; a.textContent=""; }
+if (CONFIG.image) setImg(CONFIG.image);
+$("avatar").onclick = () => $("file").click();
+$("avatar").onkeydown = e => { if (e.key==="Enter"||e.key===" ") $("file").click(); };
+$("file").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader(); r.onload = () => setImg(r.result); r.readAsDataURL(f);
+};
+
+/* Demo ticker: har 2 sec me thoda upar-neeche */
+const state = CONFIG.market.map(([n,p]) => ({n, base:p, p}));
+$("ticker").innerHTML = state.map((s,i) => `<div class="row"><b>${s.n}</b><div class="px" id="px${i}"></div></div>`).join("");
+function tick(){
+  state.forEach((s,i) => {
+    s.p = Math.max(s.base*0.97, Math.min(s.base*1.03, s.p + (Math.random()-0.5)*s.base*0.0015));
+    const ch = s.p - s.base, pc = ch / s.base * 100, up = ch >= 0;
+    $("px"+i).innerHTML = `${s.p.toLocaleString("en-IN",{maximumFractionDigits:2})}<span class="${up?"up":"down"}">${up?"▲":"▼"} ${Math.abs(ch).toFixed(2)} (${Math.abs(pc).toFixed(2)}%)</span>`;
+  });
+}
+tick(); setInterval(tick, 2000);
+</script>
+</body>
+</html>
