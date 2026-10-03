@@ -1,148 +1,652 @@
 <!DOCTYPE html>
 <html lang="hi">
-<head>    
+<head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Praveen Ads Agency - Telegram Meta Ads</title>
+
+<!-- ================= META PIXEL CODE ================= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document, 'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1273554018281424');
+fbq('track', 'PageView');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1273554018281424&ev=PageView&noscript=1"
+/>
+</noscript>
+<!-- =============== END META PIXEL CODE =============== -->
+
+
 <style>
-:root{--bg:#070d1a;--card:#101b31;--line:#22345a;--text:#f3f7ff;--mute:#93a4c2;--y:#ffe14a;--blue:#2aa3ff;--g:#25d366;--sel:#163a6b}
-*{box-sizing:border-box;margin:0}
-body{background:#03060c;color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif;display:flex;justify-content:center}
-.page{width:100%;max-width:430px;min-height:100vh;background:var(--bg);padding:0 16px 120px;position:relative;overflow:hidden}
-.candles{position:absolute;top:0;left:0;right:0;height:300px;display:flex;justify-content:space-around;align-items:flex-end;opacity:.28;pointer-events:none}
-.candles i{width:10px;border-radius:2px;background:#27d17f;animation:bob 3.2s ease-in-out infinite alternate}
-.candles i:nth-child(even){background:#ff5d5d}
-@keyframes bob{from{transform:scaleY(.55);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
-header{position:relative;text-align:center;padding-top:26px}
-.logo{width:96px;height:96px;border-radius:50%;margin:0 auto 10px;background:#111 center/cover no-repeat;border:3px solid #f59a1b;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:800;color:#f59a1b;font-size:30px}
-.brand{font-size:15px;color:var(--mute);letter-spacing:.3px}
-h1{font-size:25px;line-height:1.35;margin:14px 0 4px;font-weight:800}
-h1 em{font-style:normal;color:var(--y);display:block}
-.pill{display:inline-flex;align-items:center;gap:8px;margin:14px 0 6px;padding:8px 18px;border:1.5px solid var(--blue);border-radius:999px;font-weight:800;background:#0a1730}
-.pill svg{width:26px;height:26px}
-h2{font-size:17px;margin:22px 0 4px;text-align:center}
-.hint{text-align:center;color:var(--mute);font-size:13px;margin-bottom:12px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.svc{display:flex;align-items:center;gap:10px;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--text);border-radius:14px;padding:12px 10px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:background .15s,border-color .15s,transform .1s;position:relative}
-.svc:active{transform:scale(.97)}
-.svc .ic{flex:none;width:38px;height:38px;border-radius:50%;background:#12356b;display:flex;align-items:center;justify-content:center;font-size:19px}
-.svc[aria-pressed="true"]{background:var(--sel);border-color:var(--y)}
-.svc[aria-pressed="true"]::after{content:"\2713";position:absolute;top:6px;right:9px;color:var(--y);font-size:13px}
-.detail{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px;line-height:1.55;color:#d6e0f5;min-height:70px}
-.detail b{color:var(--y)}
-.trust{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
-.trust div{background:var(--card);border-radius:12px;padding:12px 8px;font-size:13px;font-weight:700;text-align:center}
-.trust span{display:block;font-size:20px;margin-bottom:4px}
-.note{text-align:center;color:var(--mute);font-size:12px;margin-top:22px;line-height:1.6}
-.bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#0b1527;border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.cta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:10px 4px;border-radius:12px;text-decoration:none;color:#fff;font-weight:700;font-size:12.5px;text-align:center}
-.cta b{font-size:18px}
-.wa{background:var(--g);color:#052b14}.tg{background:#229ED9}.call{background:#1d2c4a;border:1px solid var(--line)}
-.cta:focus-visible,.svc:focus-visible,.logo:focus-visible{outline:3px solid #fff;outline-offset:2px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+:root{
+    --bg:#070d1a;
+    --card:#101b31;
+    --line:#22345a;
+    --text:#f3f7ff;
+    --mute:#93a4c2;
+    --y:#ffe14a;
+    --green:#20d67b;
+    --blue:#229ed9;
+    --red:#ff4d67;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.5;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:100%;
+    max-width:650px;
+    margin:auto;
+    padding:15px;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    padding:20px 10px;
+}
+
+.logo{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--y);
+    margin-bottom:12px;
+}
+
+.logo-fallback{
+    display:none;
+}
+
+.header h1{
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.header p{
+    color:var(--mute);
+    font-size:15px;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(145deg,#101b31,#0b1427);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:24px 18px;
+    text-align:center;
+    margin-bottom:18px;
+}
+
+.badge{
+    display:inline-block;
+    background:#182744;
+    color:var(--y);
+    border:1px solid #354a73;
+    border-radius:30px;
+    padding:7px 14px;
+    font-size:13px;
+    margin-bottom:14px;
+}
+
+.hero h2{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:var(--mute);
+    font-size:15px;
+}
+
+/* CTA */
+
+.main-btn{
+    display:block;
+    width:100%;
+    padding:16px;
+    border-radius:12px;
+    text-align:center;
+    font-size:17px;
+    font-weight:700;
+    margin-top:18px;
+    transition:.2s;
+}
+
+.main-btn:hover{
+    transform:translateY(-2px);
+}
+
+.telegram-btn{
+    background:var(--blue);
+}
+
+.whatsapp-btn{
+    background:var(--green);
+}
+
+.call-btn{
+    background:#334155;
+}
+
+/* SERVICES */
+
+.section-title{
+    text-align:center;
+    font-size:23px;
+    margin:25px 0 14px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.service{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 12px;
+    text-align:center;
+}
+
+.service-icon{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.service h3{
+    font-size:15px;
+}
+
+.service p{
+    color:var(--mute);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* TRUST */
+
+.trust{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:15px;
+}
+
+.trust-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:17px 10px;
+    text-align:center;
+}
+
+.trust-card strong{
+    display:block;
+    font-size:14px;
+}
+
+.trust-card span{
+    color:var(--mute);
+    font-size:11px;
+}
+
+/* CONTACT */
+
+.contact{
+    margin-top:22px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+}
+
+.contact h2{
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.contact p{
+    color:var(--mute);
+    font-size:14px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    color:var(--mute);
+    font-size:12px;
+    padding:25px 10px 100px;
+}
+
+/* BOTTOM BAR */
+
+.bottom-bar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#0c1528;
+    border-top:1px solid var(--line);
+    padding:10px;
+    display:flex;
+    gap:8px;
+    z-index:999;
+}
+
+.bottom-bar a{
+    flex:1;
+    text-align:center;
+    padding:12px 5px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.bottom-wa{
+    background:var(--green);
+}
+
+.bottom-tg{
+    background:var(--blue);
+}
+
+.bottom-call{
+    background:#334155;
+}
+
+/* MOBILE */
+
+@media(max-width:430px){
+
+    .header h1{
+        font-size:24px;
+    }
+
+    .hero h2{
+        font-size:22px;
+    }
+
+    .services{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .service{
+        padding:15px 8px;
+    }
+
+}
+
 </style>
+
 </head>
+
 <body>
-<main class="page">
-  <div class="candles" aria-hidden="true" id="candles"></div>
 
-  <header>
-    <!-- Logo: tap karke upload (preview) ya CONFIG me logo link do -->
-    <div class="logo" id="logo" role="button" tabindex="0" aria-label="Logo badlo">P</div>
-    <input type="file" id="file" accept="image/*" hidden>
-    <p class="brand" id="brand"></p>
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <img
+            src="parveen.jpeg"
+            alt="Praveen Ads Agency Logo"
+            class="logo"
+        >
+
+        <h1>Praveen Ads Agency</h1>
+
+        <p>Telegram & Meta Ads Services</p>
+
+    </header>
 
 
+    <!-- HERO -->
+    <section class="hero">
 
-    
-    <h1>सभी तरह के टेलीग्राम चैनल के लिए<em>ज्वाइनिंग वाला एड्स लगाते हैं हम</em></h1>
-    <div class="pill">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#229ED9"/><path fill="#fff" d="M10.5 23.600 35 14c1.100-.4 2.100.3 1.700 1.900l-4.200 19.600c-.3 1.400-1.100 1.700-2.300 1.100l-6.300-4.700-3 2.900c-.3.300-.6.600-1.200.6l.4-6.400 11.700-10.600c.5-.4-.1-.7-.8-.3L14.300 27.800l-6.200-1.900c-1.300-.4-1.400-1.300.4-2z"/></svg>
-      TELEGRAM META ADS
-    </div>
-  </header>
+        <span class="badge">
+            🚀 Telegram Ads Services
+        </span>
 
-  <h2>अपना एड टाइप चुनें</h2>
-  <p class="hint" id="hint">Tap karke ek ya zyada services chuno</p>
-  <section class="grid" id="grid"></section>
-  <section class="detail" id="detail">Kisi service par tap karo, yahan uski jaankari dikhegi.</section>
+        <h2>
+            Grow Your Business With Targeted Ads
+        </h2>
 
-  <section class="trust" id="trust"></section>
+        <p>
+            Telegram, Facebook & Meta Ads ke through
+            apne business ya service ko relevant audience
+            tak promote karein.
+        </p>
 
-  <p class="note">यहाँ Telegram पर सभी प्रकार के विज्ञापन लगाए जाते हैं।<br>Apni requirement WhatsApp par bhejo, hum jaldi reply karenge.</p>
-</main>
+        <a
+            id="telegramHero"
+            href="https://t.me/+2v7UpmUDSfo3Nzll"
+            class="main-btn telegram-btn"
+            target="_blank"
+            rel="noopener"
+        >
+            📲 Join Telegram
+        </a>
 
-<nav class="bar" aria-label="Contact">
-  <a class="cta wa" id="wa" href="#"><b>WhatsApp</b><span id="waSub">Message bhejo</span></a>
-  <a class="cta tg" id="tg" href="#"><b>Telegram</b><span id="tgSub"></span></a>
-  <a class="cta call" id="call" href="#"><b>Call</b><span id="callSub"></span></a>
-</nav>
+    </section>
+
+
+    <!-- SERVICES -->
+    <h2 class="section-title">
+        Our Advertising Services
+    </h2>
+
+    <section class="services">
+
+        <div class="service">
+            <div class="service-icon">✍️</div>
+            <h3>Hand Writing Ads</h3>
+            <p>Targeted advertising campaigns</p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">📚</div>
+            <h3>Book Writing Ads</h3>
+            <p>Business promotion campaigns</p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">📢</div>
+            <h3>Playboy Ads</h3>
+            <p>Audience-based promotion</p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🧪</div>
+            <h3>Demo Ads</h3>
+            <p>Test campaigns & creatives</p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">📈</div>
+            <h3>Stock Market Ads</h3>
+            <p>Trading related promotion</p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🏏</div>
+            <h3>Cricket Ads</h3>
+            <p>Sports audience campaigns</p>
+        </div>
+
+    </section>
+
+
+    <!-- TRUST -->
+    <h2 class="section-title">
+        Why Choose Us?
+    </h2>
+
+    <section class="trust">
+
+        <div class="trust-card">
+            <strong>⚡ Fast Response</strong>
+            <span>Quick communication</span>
+        </div>
+
+        <div class="trust-card">
+            <strong>🔐 Safe & Secure</strong>
+            <span>Professional process</span>
+        </div>
+
+        <div class="trust-card">
+            <strong>📊 Campaign Testing</strong>
+            <span>Creative & audience testing</span>
+        </div>
+
+        <div class="trust-card">
+            <strong>🤝 Dedicated Support</strong>
+            <span>Campaign assistance</span>
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact">
+
+        <h2>Get In Touch</h2>
+
+        <p>
+            Ads campaign ke liye humse contact karein.
+        </p>
+
+        <a
+            id="telegramContact"
+            href="https://t.me/+2v7UpmUDSfo3Nzll"
+            class="main-btn telegram-btn"
+            target="_blank"
+            rel="noopener"
+        >
+            📲 Contact on Telegram
+        </a>
+
+        <a
+            id="whatsappContact"
+            href="#"
+            class="main-btn whatsapp-btn"
+            target="_blank"
+            rel="noopener"
+        >
+            💬 WhatsApp
+        </a>
+
+        <a
+            id="callContact"
+            href="tel:9256777139"
+            class="main-btn call-btn"
+        >
+            📞 Call Now
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        © 2026 Praveen Ads Agency<br>
+        Telegram & Meta Ads Services
+
+    </footer>
+
+</div>
+
+
+<!-- BOTTOM BAR -->
+
+<div class="bottom-bar">
+
+    <a
+        id="bottomWhatsapp"
+        href="#"
+        class="bottom-wa"
+        target="_blank"
+        rel="noopener"
+    >
+        WhatsApp
+    </a>
+
+    <a
+        id="bottomTelegram"
+        href="https://t.me/+2v7UpmUDSfo3Nzll"
+        class="bottom-tg"
+        target="_blank"
+        rel="noopener"
+    >
+        Telegram
+    </a>
+
+    <a
+        href="tel:9256777139"
+        class="bottom-call"
+    >
+        Call
+    </a>
+
+</div>
+
 
 <script>
-/* ====== YAHAN APNI DETAILS BADLO ====== */
+
+/* ================= CONFIG ================= */
+
 const CONFIG = {
-  brand: "Praveen Ads Agency · Grow your business online",
-  logo: "parveen.jpeg",           // <- logo file isi folder mein rakho (ya poora link do)
-  phone: "9256777139",            // 10 digit number (call + WhatsApp dono ke liye)
-  telegram: "https://t.me/+2v7UpmUDSfo3Nzll",   // <- POORA Telegram link yahan (kuch aur nahi jodna)
-  telegramLabel: "Channel join karo",
-  services: [
-    ["✍️", "Hand Writing Ads", "Haath se likhe hue style ke creatives jo Telegram par alag dikhte hain."],
-    ["📚", "Book Writing Ads", "Book-style creatives, jo channel ki value samjhane mein madad karte hain."],
-    ["🎭", "Playboy Ads", "Is category ke liye alag creative aur targeting. Details WhatsApp par poochho."],
-    ["🎬", "Demo Ads", "Demo video / screenshot wale ads jo channel ka kaam dikhate hain."],
-    ["📈", "Stock Market Ads", "NIFTY, BANKNIFTY aur trading channels ke liye joining wale ads."],
-    ["🏏", "Cricket Ads", "Cricket channels ke liye joining ads, match season ke hisaab se."]
-  ],
-  trust: [["🎯", "Fast Response"], ["🛡️", "Safe & Secure"], ["⚡", "100% Result"], ["📊", "Your Success, Our Priority"]]
+
+    telegram:
+    "https://t.me/+2v7UpmUDSfo3Nzll",
+
+    whatsapp:
+    "919256777139",
+
+    phone:
+    "9256777139"
+
 };
-/* ======================================= */
 
-const $ = id => document.getElementById(id);
-const sel = new Set();
-$("brand").textContent = CONFIG.brand;
-const digits = CONFIG.phone.replace(/\D/g, "").slice(-10);   // sirf 10 digit
-$("tg").href = CONFIG.telegram.trim();
-$("tgSub").textContent = CONFIG.telegramLabel;
-$("call").href = "tel:+91" + digits;
-$("callSub").textContent = digits;
-$("trust").innerHTML = CONFIG.trust.map(t => `<div><span>${t[0]}</span>${t[1]}</div>`).join("");
 
-/* Logo */
-function setLogo(src){ const l=$("logo"); l.style.backgroundImage=`url("${src}")`; l.textContent=""; }
-if (CONFIG.logo) setLogo(CONFIG.logo);
-$("logo").onclick = () => $("file").click();
-$("logo").onkeydown = e => { if (e.key==="Enter"||e.key===" ") $("file").click(); };
-$("file").onchange = e => { const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>setLogo(r.result); r.readAsDataURL(f); };
+/* ================= WHATSAPP MESSAGE ================= */
 
-/* Services */
-$("grid").innerHTML = CONFIG.services.map((s,i) =>
-  `<button class="svc" data-i="${i}" aria-pressed="false"><span class="ic">${s[0]}</span>${i+1}. ${s[1]}</button>`).join("");
+const whatsappMessage =
+"Hello Praveen Ads Agency, I want to know more about your Telegram & Meta Ads services.";
 
-function update(last){
-  const names = [...sel].sort().map(i => CONFIG.services[i][1]);
-  if (last !== undefined) {
-    const s = CONFIG.services[last];
-    $("detail").innerHTML = `<b>${s[1]}</b><br>${s[2]}`;
-  }
-  const msg = names.length
-    ? `Namaste, mujhe Telegram ads chahiye: ${names.join(", ")}. Please details bhejiye.`
-    : "Namaste, mujhe Telegram ads ki jaankari chahiye.";
-  $("wa").href = "https://wa.me/91" + digits + "?text=" + encodeURIComponent(msg);
-  $("waSub").textContent = names.length ? names.length + " service chuni" : "Message bhejo";
-  $("hint").textContent = names.length ? names.length + " selected: " + names.join(", ") : "Tap karke ek ya zyada services chuno";
+
+/* ================= WHATSAPP URL ================= */
+
+const whatsappURL =
+"https://wa.me/" +
+CONFIG.whatsapp +
+"?text=" +
+encodeURIComponent(whatsappMessage);
+
+
+/* ================= SET LINKS ================= */
+
+document.getElementById("telegramHero").href =
+CONFIG.telegram;
+
+document.getElementById("telegramContact").href =
+CONFIG.telegram;
+
+document.getElementById("bottomTelegram").href =
+CONFIG.telegram;
+
+document.getElementById("whatsappContact").href =
+whatsappURL;
+
+document.getElementById("bottomWhatsapp").href =
+whatsappURL;
+
+
+/* ================= TELEGRAM LEAD TRACKING ================= */
+
+function trackTelegramLead(){
+
+    if(typeof fbq === "function"){
+
+        fbq('track', 'Lead');
+
+    }
+
 }
-$("grid").onclick = e => {
-  const b = e.target.closest(".svc"); if (!b) return;
-  const i = +b.dataset.i;
-  if (sel.has(i)) { sel.delete(i); b.setAttribute("aria-pressed","false"); }
-  else { sel.add(i); b.setAttribute("aria-pressed","true"); }
-  update(i);
-};
-update();
 
-/* Background candles */
-$("candles").innerHTML = Array.from({length:18},(_,i)=>`<i style="height:${40+Math.random()*180}px;animation-delay:${(i*.23).toFixed(2)}s"></i>`).join("");
+
+/* ================= TELEGRAM BUTTONS ================= */
+
+document.getElementById("telegramHero")
+.addEventListener("click", trackTelegramLead);
+
+document.getElementById("telegramContact")
+.addEventListener("click", trackTelegramLead);
+
+document.getElementById("bottomTelegram")
+.addEventListener("click", trackTelegramLead);
+
+
+/* ================= WHATSAPP TRACKING ================= */
+
+function trackWhatsAppLead(){
+
+    if(typeof fbq === "function"){
+
+        fbq('track', 'Contact');
+
+    }
+
+}
+
+
+document.getElementById("whatsappContact")
+.addEventListener("click", trackWhatsAppLead);
+
+document.getElementById("bottomWhatsapp")
+.addEventListener("click", trackWhatsAppLead);
+
+
+/* ================= CALL TRACKING ================= */
+
+document.getElementById("callContact")
+.addEventListener("click", function(){
+
+    if(typeof fbq === "function"){
+
+        fbq('track', 'Contact');
+
+    }
+
+});
+
+
 </script>
+
 </body>
 </html>
